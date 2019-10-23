@@ -22,3 +22,5 @@ Database user: **vagrant**
 User Password: **vagrant**
 Database hostname: **localhost**
 
+## MailHog 
+http://banda.box:8025
