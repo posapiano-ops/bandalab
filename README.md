@@ -17,10 +17,19 @@ Once you've installed VirtualBox and Vagrant on your computer you're ready to co
 ## Database Info
 An initial database is automatically created for you.
 
-Database name: **bandalab**
-Database user: **vagrant**
-User Password: **vagrant**
-Database hostname: **localhost**
+- Database name: **bandalab**
+- Database user: **vagrant**
+- User Password: **vagrant**
+- Database hostname: **localhost**
 
 ## MailHog 
-http://banda.box:8025
+Access from http://banda.box:8025
+Laravel MailHog SMTP configuration on **.env**
+```
+MAIL_DRIVER=smtp
+MAIL_HOST=0.0.0.0
+MAIL_PORT=1025
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=null
+```

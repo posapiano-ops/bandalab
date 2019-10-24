@@ -9,7 +9,7 @@ chown root:root MailHog_linux_amd64
 mv MailHog_linux_amd64 /usr/sbin/mailhog
 
 ## Install mailhog initd service
-#wget https://raw.githubusercontent.com/geerlingguy/ansible-role-mailhog/master/templates/mailhog.init.j2
+# wget https://raw.githubusercontent.com/geerlingguy/ansible-role-mailhog/master/templates/mailhog.init.j2
 cp /vagrant/etc/init.d/mailhog.init.j2 .
 chown root:root mailhog.init.j2
 chmod +x mailhog.init.j2
