@@ -16,6 +16,18 @@ setenforce 0
 usermod -a -G apache  $BANDALAB_USER
 #sed -i 's/DocumentRoot "\/var\/www\/html"/DocumentRoot "\/var\/www\/html\/public"/' /etc/httpd/conf/httpd.conf
 #chown -R apache.apache -R /var/www/html
+
+systemctl restart httpd
+
+# Xdebug
+yum install php-devel php-pear -y
+pecl channel-update pecl.php.net
+pecl install xdebug
+
+cp /vagrant/etc/php.d/30-xdebug.ini .
+chown root:root 30-xdebug.ini
+mv 30-xdebug.ini /etc/php.d/30-xdebug.ini
+
 systemctl restart httpd
 #firewall-cmd --permanent --add-port=80/tcp
 #firewall-cmd --reload  
