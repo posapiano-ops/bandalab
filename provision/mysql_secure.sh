@@ -17,6 +17,16 @@ mysql -e "CREATE USER 'vagrant'@'%' IDENTIFIED BY 'vagrant'"
 mysql -e "GRANT ALL PRIVILEGES ON *.* TO 'vagrant'@'%' WITH GRANT OPTION"
 # Make our changes take effect
 mysql -e "FLUSH PRIVILEGES"
+
 # Any subsequent tries to run queries this way will get access denied because lack of usr/pwd param
+# mkdir -p /home/vagrant/bin
+cat > /home/vagrant/.my.cnf <<EOF
+[client]
+user=vagrant
+password=vagrant
+
+EOF 
+
+chmod 0600 /home/vagrant/.my.cnf
 
 echo "Done! MysqlSecure"

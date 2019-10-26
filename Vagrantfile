@@ -49,7 +49,8 @@ Vagrant.configure("2") do |config|
     vb.memory = memory
   end
 
-  # NFS PLUGIN
+  # NFS PLUGIN https://github.com/winnfsd/vagrant-winnfsd
+  # https://stefanwrobel.com/how-to-make-vagrant-performance-not-suck
   #config.vm.synced_folder "./public" , "/var/www/html", type: "nfs" , :mount_options => ["dmode=777", "fmode=666"]
 
   # Enable provisioning with a shell script. Additional provisioners such as

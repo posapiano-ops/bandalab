@@ -4,6 +4,7 @@ set -e
 yum install epel-release -y
 yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm -y
 yum install yum-utils git svn vim net-tools wget screen daemonize zip unzip -y
+yum-config-manager --disable remi-php54 -y
 yum-config-manager --enable remi-php72 -y
 yum install install php php-zip php-mysqlnd php-pecl-mcrypt php-xml php-mbstring php-common php-json php-cli -y
 yum install httpd mariadb mariadb-server -y
@@ -29,6 +30,13 @@ chown root:root 30-xdebug.ini
 mv 30-xdebug.ini /etc/php.d/30-xdebug.ini
 
 systemctl restart httpd
+
+# PHPUnit
+yum --enablerepo=remi install phpunit8 -y
+
+# Node.js
+curl -sL https://rpm.nodesource.com/setup_10.x | bash -
+yum install nodejs -y
 #firewall-cmd --permanent --add-port=80/tcp
 #firewall-cmd --reload  
 echo "Done! Bootstrap"
