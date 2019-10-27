@@ -32,4 +32,4 @@ mv mhsendmail_linux_amd64 /usr/local/bin/mhsendmail
 sed -i "s/sendmail_path = \/usr\/sbin\/sendmail -t -i/sendmail_path = \/usr\/local\/bin\/mhsendmail/" /etc/php.ini
 systemctl restart httpd
 
-echo echo "Done! MailHog http://localhost:8025"
+echo "Done! MailHog http://localhost:8025"

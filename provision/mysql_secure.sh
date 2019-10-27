@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Make sure that NOBODY can access the server without a password
 mysql -e "UPDATE mysql.user SET Password = PASSWORD('CHANGEME') WHERE User = 'root'"
@@ -20,12 +20,12 @@ mysql -e "FLUSH PRIVILEGES"
 
 # Any subsequent tries to run queries this way will get access denied because lack of usr/pwd param
 # mkdir -p /home/vagrant/bin
-cat > /home/vagrant/.my.cnf <<EOF
+cat > /home/vagrant/.my.cnf << EOF
 [client]
 user=vagrant
 password=vagrant
-
-EOF 
+host=localhost
+EOF
 
 chmod 0600 /home/vagrant/.my.cnf
 
