@@ -1,5 +1,5 @@
 # BandaLab - Vagrant LAMP
-Vagrant LAMP Dev Environment on CentOS7 whith PHP7.2, PhpUnit8, Node.js10.17, NPM6.11, Apache 2.4, Xdebug2.7.2, mariadb 5.5, Composer 1.9, MailHog 1.0.0 
+Vagrant LAMP Dev Environment on CentOS7 with PHP7.2, PhpUnit8, Node.js10.17, NPM6.11, Apache 2.4, Xdebug2.7.2, mariadb 5.5, Composer 1.9, MailHog 1.0.0 
 
 Before moving ahead with this starter environment you'll need to have a few things installed on your computer:
 * [VirtualBox](https://www.virtualbox.org/) - Free tool that allows you to run virtual machines on your computer.
