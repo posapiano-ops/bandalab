@@ -12,9 +12,25 @@ systemctl start httpd.service
 systemctl enable httpd.service
 systemctl start mariadb.service
 systemctl enable mariadb.service
+
+# Selinux
 sed -i 's/SELINUX=enforcing/SELINUX=permissive/' /etc/selinux/config
 setenforce 0
+
+#User Conf
 usermod -a -G apache  $BANDALAB_USER
+chmod 775 /var/www/html
+chown $BANDALAB_USER.apache -R /var/www/html
+chmod ug+s -R /var/www/html
+find /var/www/html -type d -exec chmod 775 '{}' ';'
+find /var/www/html -type f -exec chmod 664 '{}' ';'
+su -c echo 'umask 0002'  >> ~/.bashrc $BANDALAB_USER
+
+# Apache Config
+cp /vagrant/etc/httpd/conf/httpd.conf .
+chown root:root httpd.conf
+mv -f httpd.conf /etc/httpd/conf/httpd.conf
+
 #sed -i 's/DocumentRoot "\/var\/www\/html"/DocumentRoot "\/var\/www\/html\/public"/' /etc/httpd/conf/httpd.conf
 #chown -R apache.apache -R /var/www/html
 
@@ -37,6 +53,8 @@ yum --enablerepo=remi install phpunit8 -y
 # Node.js
 curl -sL https://rpm.nodesource.com/setup_10.x | bash -
 yum install nodejs -y
+
+# Firewall
 #firewall-cmd --permanent --add-port=80/tcp
 #firewall-cmd --reload  
 echo "Done! Bootstrap"
